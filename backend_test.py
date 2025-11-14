@@ -174,8 +174,7 @@ class SmartRecipeAPITester:
             "user_session": self.user_session,
             "dietary_restrictions": ["vegetarian", "gluten-free"],
             "allergies": ["nuts"],
-            "preferred_cuisines": ["Italian", "Asian"],
-            "cooking_skill": "intermediate"
+            "favorite_cuisines": ["Italian", "Asian"]
         }
         success1, _ = self.run_test("Save User Preferences", "POST", "user/preferences", 200, data)
         
@@ -184,7 +183,7 @@ class SmartRecipeAPITester:
         if success2 and 'preferences' in response:
             prefs = response['preferences']
             print(f"   Dietary restrictions: {prefs.get('dietary_restrictions', [])}")
-            print(f"   Preferred cuisines: {prefs.get('preferred_cuisines', [])}")
+            print(f"   Favorite cuisines: {prefs.get('favorite_cuisines', [])}")
         
         return success1 and success2
 
